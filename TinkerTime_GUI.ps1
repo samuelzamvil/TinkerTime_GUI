@@ -32,13 +32,13 @@ function Reset-Date {
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
-$TurtleIcon = [System.Drawing.Icon]::ExtractAssociatedIcon((Join-Path $pwd "\TinkerTime.exe"))
+$ApplicationIcon = [System.Drawing.Icon]::ExtractAssociatedIcon((Join-Path $pwd "\TinkerTime.exe"))
 
 $Form                            = New-Object system.Windows.Forms.Form
 $Form.ClientSize                 = '400,400'
 $Form.text                       = "TinkerTime GUI"
 $Form.TopMost                    = $false
-$Form.Icon                       = $TurtleIcon
+$Form.Icon                       = $ApplicationIcon
 $Form.FormBorderStyle = [system.Windows.Forms.FormBorderStyle]::FixedDialog
 
 $ModifyTimeTime_Button           = New-Object system.Windows.Forms.Button
