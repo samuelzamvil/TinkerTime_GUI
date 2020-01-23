@@ -26,7 +26,6 @@ function Reset-Date {
         Stop-Process -Name w32tm
         [System.Windows.Forms.MessageBox]::Show("Clock reset has timed out.","Error", [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Error)
     }
-    Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters -Name "Type" -Value "NoSync"
 }
 
 Add-Type -AssemblyName System.Windows.Forms
@@ -93,6 +92,7 @@ $Form.controls.AddRange(@($ModifyTimeTime_Button,$ResyncTime_Button,$TimeInteger
 
 
 $ModifyTimeTime_Button.Add_Click({
+    Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\W32Time\Parameters -Name "Type" -Value "NoSync"
     tinkerTime $SelectTimeModifierType_ListBox.SelectedItem $TimeInteger_TextBox.Text
  })
 
